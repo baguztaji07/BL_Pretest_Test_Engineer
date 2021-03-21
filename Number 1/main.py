@@ -8,7 +8,7 @@ import operatornya
 class PythonJsonData(unittest.TestCase):
 
 	def setUp(self):
-		print("setup")
+		# print("setup")
 		self.driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
 
 		#api url
@@ -21,22 +21,36 @@ class PythonJsonData(unittest.TestCase):
 		self.json_response = json.loads(response.text)
 
 	def test_userId(self):
-		# length = len(json_response)
-		# print(length)
 		i = 0
 		for x in self.json_response:
-			print(self.json_response[i]['userId'])
-			print(i)
-			# assert operatornya.isInteger(json_response[i]['userId'])
+			# print(self.json_response[i]['userId'])
+			# print(i)
+			assert operatornya.isInteger(self.json_response[i]['userId'])
 			i+=1
 
+	def test_id(self):
+		i = 0
+		for x in self.json_response:
+			# print(self.json_response[i]['userId'])
+			# print(i)
+			assert operatornya.isInteger(self.json_response[i]['id'])
+			i+=1
 
-		# mainPage = page.MainPage(self.driver)
-		# assert mainPage.is_title_matches()
-		# mainPage.search_text_element = "pycon"
-		# mainPage.click_go_button()
-		# search_result_page = page.SearchResultPage(self.driver)
-		# assert search_result_page.is_results_found()
+	def test_title(self):
+		i = 0
+		for x in self.json_response:
+			# print(self.json_response[i]['userId'])
+			# print(i)
+			assert operatornya.isString(self.json_response[i]['title'])
+			i+=1
+
+	def test_body(self):
+		i = 0
+		for x in self.json_response:
+			# print(self.json_response[i]['userId'])
+			# print(i)
+			assert operatornya.isString(self.json_response[i]['body'])
+			i+=1
 
 	def tearDown(self):
 		self.driver.close()

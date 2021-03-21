@@ -1,5 +1,5 @@
 def isInteger(x):
-	return x.isdigit()
+	return str(x).isdigit()
 
 def isString(x):
-	return x.isinstance(x, str)
+	return type(x) == str

@@ -1,7 +1,6 @@
 import unittest
 import requests
 import json
-import jsonpath
 from selenium import webdriver
 import operatornya
 
@@ -23,32 +22,24 @@ class PythonJsonData(unittest.TestCase):
 	def test_userId(self):
 		i = 0
 		for x in self.json_response:
-			# print(self.json_response[i]['userId'])
-			# print(i)
 			assert operatornya.isInteger(self.json_response[i]['userId'])
 			i+=1
 
 	def test_id(self):
 		i = 0
 		for x in self.json_response:
-			# print(self.json_response[i]['userId'])
-			# print(i)
 			assert operatornya.isInteger(self.json_response[i]['id'])
 			i+=1
 
 	def test_title(self):
 		i = 0
 		for x in self.json_response:
-			# print(self.json_response[i]['userId'])
-			# print(i)
 			assert operatornya.isString(self.json_response[i]['title'])
 			i+=1
 
 	def test_body(self):
 		i = 0
 		for x in self.json_response:
-			# print(self.json_response[i]['userId'])
-			# print(i)
 			assert operatornya.isString(self.json_response[i]['body'])
 			i+=1
 
